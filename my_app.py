@@ -18,7 +18,9 @@ import pandas as pd
 # import polars as pl
 external_script = ["https://tailwindcss.com/", {"src": "https://cdn.tailwindcss.com"}]
 
-server = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
+app = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
+
+server = app.server
 
 
 def generate_table(dataframe, max_rows=11):
@@ -93,7 +95,7 @@ fig2.update_xaxes(mirror=True, showline=False, ticks="outside", linecolor="black
 fig2.update_yaxes(mirror=True, showline=False, ticks="outside", linecolor="black", gridcolor="#007ace")
 
 
-server.layout = html.Div(
+app.layout = html.Div(
     children=[
         dcc.Interval(id="refresh", interval=200),
         html.H1(
@@ -171,7 +173,7 @@ server.layout = html.Div(
 
 
 # callbacks
-@server.callback(
+@app.callback(
     Output(component_id="out", component_property="children"),
     State("text", "value"),
     State("number", "value"),
@@ -188,4 +190,4 @@ def update_output_div(text_input, number_input, sex_input, n_clicks):
 
 
 if __name__ == "__main__":
-    server.run_server(host="0.0.0.0", debug=False)
+    app.run_server(host="0.0.0.0", debug=False, port=8000)
