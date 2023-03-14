@@ -1,10 +1,9 @@
 from dash import dcc, Output, Input, State, html
-from lets_plot import *
 
-LetsPlot.setup_html()
+
 import plotly.express as px
 import dash
-from datetime import datetime
+
 import plotly.io as pio
 from siuba.data import penguins
 import plotly.graph_objects as go
