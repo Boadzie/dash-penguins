@@ -93,7 +93,7 @@ fig2.update_xaxes(mirror=True, showline=False, ticks="outside", linecolor="black
 fig2.update_yaxes(mirror=True, showline=False, ticks="outside", linecolor="black", gridcolor="#007ace")
 
 
-dash_app.layout = html.Div(
+app.layout = html.Div(
     children=[
         dcc.Interval(id="refresh", interval=200),
         html.H1(
