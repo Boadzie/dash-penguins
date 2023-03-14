@@ -18,7 +18,7 @@ import pandas as pd
 # import polars as pl
 external_script = ["https://tailwindcss.com/", {"src": "https://cdn.tailwindcss.com"}]
 
-dash_app = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
+app = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
 
 
 def generate_table(dataframe, max_rows=11):
@@ -171,7 +171,7 @@ dash_app.layout = html.Div(
 
 
 # callbacks
-@dash_app.callback(
+@app.callback(
     Output(component_id="out", component_property="children"),
     State("text", "value"),
     State("number", "value"),
