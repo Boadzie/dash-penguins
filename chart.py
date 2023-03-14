@@ -18,7 +18,7 @@ import pandas as pd
 # import polars as pl
 external_script = ["https://tailwindcss.com/", {"src": "https://cdn.tailwindcss.com"}]
 
-app = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
+server = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
 
 
 def generate_table(dataframe, max_rows=11):
@@ -54,7 +54,7 @@ def generate_table(dataframe, max_rows=11):
 # .groupby("species", maintain_order=True)
 # .agg(pl.all().sum())
 # )
-print(penguins.shape)
+# print(penguins.shape)
 # fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 fig = px.histogram(penguins, x="species", color="species")
 fig.update_layout(title_text="Penguins", showlegend=False)
@@ -93,7 +93,7 @@ fig2.update_xaxes(mirror=True, showline=False, ticks="outside", linecolor="black
 fig2.update_yaxes(mirror=True, showline=False, ticks="outside", linecolor="black", gridcolor="#007ace")
 
 
-app.layout = html.Div(
+server.layout = html.Div(
     children=[
         dcc.Interval(id="refresh", interval=200),
         html.H1(
@@ -171,7 +171,7 @@ app.layout = html.Div(
 
 
 # callbacks
-@app.callback(
+@server.callback(
     Output(component_id="out", component_property="children"),
     State("text", "value"),
     State("number", "value"),
@@ -188,4 +188,4 @@ def update_output_div(text_input, number_input, sex_input, n_clicks):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    server.run_server(host="0.0.0.0", debug=False)
