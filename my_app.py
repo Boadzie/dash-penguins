@@ -112,33 +112,33 @@ app.layout = html.Div(
             [
                 html.Div(
                     [
-                        html.P(id="out", className="text-lg font-bold text-slate-500 capitalize"),
+                        html.P(id="out", className="text-lg font-bold text-white "),
                         dcc.Input(
                             id="text",
                             required=True,
                             type="text",
                             placeholder="Name...",
-                            className=" ring-2 text-slate-400 rounded-sm py-1 w-full px-4",
+                            className=" ring-2 text-slate-500 rounded-sm py-1 w-full px-4",
                         ),
                         dcc.Input(
                             id="number",
                             type="number",
                             required=True,
                             placeholder="Age...",
-                            className="ring-2 text-slate-400  rounded-sm py-1 w-full px-4",
+                            className="ring-2 text-slate-500  rounded-sm py-1 w-full px-4",
                         ),
                         dcc.Input(
                             id="sex",
                             type="text",
                             required=True,
                             placeholder="Sex...",
-                            className="text-slate-400  ring-2 rounded-sm py-1 w-full px-4",
+                            className="text-slate-500  ring-2 rounded-sm py-1 w-full px-4",
                         ),
                         html.Div(
                             dcc.Dropdown(
                                 id="columns",
                                 options=[{"label": x, "value": x} for x in sorted(penguins.columns)],
-                                className="text-slate-400  w-full",
+                                className="text-slate-500  w-full",
                             ),
                             className="w-full",
                         ),
