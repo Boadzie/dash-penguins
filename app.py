@@ -188,4 +188,4 @@ def update_output_div(text_input, number_input, sex_input, n_clicks):
 
 
 if __name__ == "__main__":
-    dash_app.run_server(debug=True)
+    app.run_server()
