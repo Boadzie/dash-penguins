@@ -45,7 +45,7 @@ def generate_table(dataframe, max_rows=11):
                 ]
             ),
         ],
-        className="lg:table-auto table-fixed border-2 col-span-3 bg-[#082255] p-2 w-full",
+        className="lg:table-auto table-fixed border-2 lg:col-span-2 bg-[#082255] p-2 w-full",
     )
 
 
@@ -160,7 +160,7 @@ app.layout = html.Div(
                 ),
                 html.Div(
                     [dcc.Graph(id="graphy", figure=fig2)],
-                    className="bg-[#082255] text-white shadow-lg rounded-sm p-2 w-full h-auto",
+                    className="bg-[#082255] text-white lg:col-span-2 shadow-lg rounded-sm p-2 w-full h-auto",
                 ),
                 generate_table(penguins),
             ],
