@@ -20,14 +20,6 @@ external_script = ["https://tailwindcss.com/", {"src": "https://cdn.tailwindcss.
 
 dash_app = dash.Dash(__name__, requests_pathname_prefix="/", external_scripts=external_script, title="Dan Demo")
 
-df = pd.DataFrame(
-    {
-        "fruit": ["Apples", "Banana", "Orange", "Apple", "Banana", "Apple"],
-        # "date": [(datetime(2022, 1, 1)), (datetime(2022, 1, 2)), (datetime(2022, 1, 3))],
-        "float": [4.0, 5.0, 6.0, 5.0, 8.4, 5.0],
-    }
-)
-
 
 def generate_table(dataframe, max_rows=11):
     return html.Table(
@@ -62,7 +54,7 @@ def generate_table(dataframe, max_rows=11):
 # .groupby("species", maintain_order=True)
 # .agg(pl.all().sum())
 # )
-
+print(penguins.shape)
 # fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 fig = px.histogram(penguins, x="species", color="species")
 fig.update_layout(title_text="Penguins", showlegend=False)
