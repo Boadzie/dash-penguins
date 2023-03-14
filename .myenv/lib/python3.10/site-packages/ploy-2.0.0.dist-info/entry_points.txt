@@ -1,0 +1,9 @@
+[console_scripts]
+ploy = ploy:ploy
+ploy-ssh = ploy:ploy_ssh
+
+[ploy.plugins]
+plain = ploy.plain:plugin
+
+[pytest11]
+ploy_pytest_plugin = ploy_pytest_plugin
