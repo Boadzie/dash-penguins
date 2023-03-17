@@ -29,7 +29,7 @@ def generate_table(dataframe, max_rows=11):
             html.Thead(
                 html.Tr(
                     [html.Th([col], className="px-2 border-2 w-full") for col in dataframe.columns],
-                    className="p-2 divide divide-x-2 border-2 bg-[#061E44] text-lg  text-white w-full text-left",
+                    className="p-2 divide divide-x-2 border-2 bg-[#061E44] text-lg  text-white w-full text-left ",
                 )
             ),
             html.Tbody(
@@ -45,7 +45,7 @@ def generate_table(dataframe, max_rows=11):
                 ]
             ),
         ],
-        className="lg:table-auto table-fixed border-2 lg:col-span-2 bg-[#082255] p-2 w-full",
+        className="table-auto lg:h-full border-2 lg:col-span-2 bg-[#082255] p-2 w-full",
     )
 
 
@@ -162,7 +162,9 @@ app.layout = html.Div(
                     [dcc.Graph(id="graphy", figure=fig2)],
                     className="bg-[#082255] text-white lg:col-span-2 shadow-lg rounded-sm p-2 w-full h-auto",
                 ),
-                generate_table(penguins),
+                html.Div(
+                    [generate_table(penguins)], className="w-full lg:col-span-2 overflow-x-scroll lg:overflow-x-hidden"
+                ),
             ],
             className="grid grid-cols-1 lg:grid-cols-4 gap-4",
         ),
